@@ -10,7 +10,7 @@ end)
 local Signal = script:GetAttributeChangedSignal("Selected"):Connect(function()
     if script:GetAttribute("Selected") then
         Button:SetActive(true)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hardswell/Roblox-Scripts/main/Source/Core/init.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Mrhardswell/SmartSync/main/Web/RawLua.lua"))()
     else
         Button:SetActive(false)
     end
