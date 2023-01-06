@@ -1,6 +1,17 @@
 local Toolbar = plugin:CreateToolbar("Hardswell's Plugin")
 local Button = Toolbar:CreateButton("Hardswell's Plugin", "Load", "rbxassetid://12070443054")
 
+script:SetAttribute("Selected", false)
+
 Button.Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Hardswell/Roblox-Scripts/master/Source/Core/init.lua"))()
+    script:SetAttribute("Selected", not script:GetAttribute("Selected"))
+end)
+
+local Signal = script:GetAttributeChangedSignal("Selected"):Connect(function()
+    if script:GetAttribute("Selected") then
+        Button:SetActive(true)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Hardswell/Roblox-Scripts/main/Source/Core/init.lua"))()
+    else
+        Button:SetActive(false)
+    end
 end)
